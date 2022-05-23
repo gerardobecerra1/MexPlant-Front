@@ -1,0 +1,79 @@
+.watch {
+  height: 100vh;
+  position: relative;
+
+  .back {
+    display: flex;
+    align-items: center;
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    color: white;
+    cursor: pointer;
+    z-index: 2;
+  }
+
+  .image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .infoTop {
+    font-size: 30px;
+    width: 35%;
+    position: absolute;
+    left: 50px;
+    bottom: 260px;
+    color: white;
+    display: flex;
+    flex-direction: column;
+
+    .name {
+      width: 400px;
+    }
+  }
+
+  .infoBottom {
+    background: linear-gradient(to bottom, transparent 0%, rgb(0, 0, 0) 25%);
+    position: absolute;
+    bottom: 0;
+
+    .content {
+      margin-top: 100px;
+      padding: 5px;
+      display: flex;
+      align-items: flex-start;
+      margin-bottom: 10px;
+      font-weight: 600;
+      color: white;
+      flex-direction: column;
+
+      .classification {
+        color: white;
+        border: 1px solid white;
+        padding: 1px 3px;
+      }
+
+      .desc {
+        margin: 20px 0px;
+      }
+
+      .creator {
+        display: flex;
+        align-items: center;
+        margin-top: 10px;
+
+        img {
+          width: 30px;
+          height: 30px;
+          border-radius: 20%;
+          object-fit: cover;
+        }
+        .name {
+          margin-left: 5px;
+        }
+      }
+    }
+  }
+}
