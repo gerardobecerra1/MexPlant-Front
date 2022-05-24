@@ -1,7 +1,28 @@
 import { InfoOutlined } from "@material-ui/icons";
+import axios from "axios";
+import { useEffect, useState } from "react";
 import "./featured.scss";
 
 export default function Featured({ type }) {
+  const [plant, setPlant] = useState([]);
+
+  useEffect(() => {
+    const getRandomPlant = async () => {
+      try {
+        const res = await axios.get("http://localhost:8080/api/plants/random", {
+          headers: {
+            "x-token":
+              "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2MjhjMzFlNThmZWM5MjRhMjU2Nzk3YWYiLCJpYXQiOjE2NTMzNjk1NjEsImV4cCI6MTY1MzM4Mzk2MX0.n0rH8QuJjFwYivX3ERdSp8dcWcAgV22LasTx4e6ag3k",
+          },
+        });
+        setPlant(res.data.randomPlant[0]);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    getRandomPlant();
+  }, [type]);
+
   return (
     <div className="featured">
       {type && (
@@ -14,22 +35,15 @@ export default function Featured({ type }) {
           </select>
         </div>
       )}
-      <img
-        src="https://inaturalist-open-data.s3.amazonaws.com/photos/144585/large.jpg"
-        alt="Imagen de la Planta"
-      />
+      <img src={plant.image} alt="Imagen de la Planta" />
       <div className="info">
         <div className="name">
-          <h1>Huizache</h1>
+          <h1>{plant.name}</h1>
           <div className="scientific=name">
-            <h3>Acacia farnesiana</h3>
+            <h3>{plant.scientificName}</h3>
           </div>
         </div>
-        <span className="desc">
-          La Acacia farnesiana, comúnmente conocida como Espinillo blanco, es
-          así nombrada debido a las numerosas espinas distribuidas a lo largo de
-          sus ramas, es conocido también como Huisache o Huizache o Vinorama.
-        </span>
+        <span className="desc line-clamp">{plant.description}</span>
         <div className="buttons">
           {/* <button className="favorite">
             <FavoriteOutlined />

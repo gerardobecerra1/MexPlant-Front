@@ -1,5 +1,6 @@
 import { ArrowDropDown, Notifications, Search } from "@material-ui/icons";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import "./navbar.scss";
 
 const Navbar = () => {
@@ -17,11 +18,15 @@ const Navbar = () => {
             src="https://res.cloudinary.com/becerra-media/image/upload/v1653344389/images/MexPlant-Lower_vt3kcn.png"
             alt="MexPlantLogo"
           />
-          <span>Homepage</span>
-          <span>Series</span>
-          <span>Movies</span>
-          <span>New and Popular</span>
-          <span>My List</span>
+          <Link to="/" className="link">
+            <span>Inicio</span>
+          </Link>
+          <Link to="/plantas" className="link">
+            <span>Plantas</span>
+          </Link>
+          <Link to="/animales" className="link">
+            <span>Animales</span>
+          </Link>
         </div>
         <div className="right">
           <Search className="icon" />

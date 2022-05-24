@@ -28,8 +28,8 @@ export default function Register() {
         </div>
       </div>
       <div className="container">
-        <h1>Información de plantas que se acabna de descubrir.</h1>
-        <h2>Lee y aprendre en cualquier luga.</h2>
+        <h1>Empápate en el Universo de la Flora Mexicana</h1>
+        <h2>Lee y aprendre en cualquier lugar.</h2>
         <p>¿Queres aprender?, Introduce tu correo para crear una cuenta.</p>
         {!email ? (
           <div className="input">
