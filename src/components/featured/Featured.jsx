@@ -9,10 +9,10 @@ export default function Featured({ type }) {
   useEffect(() => {
     const getRandomPlant = async () => {
       try {
-        const res = await axios.get("http://localhost:8080/api/plants/random", {
+        const res = await axios.get("https://mexplant-api.herokuapp.com/api/plants/random", {
           headers: {
             "x-token":
-              "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2MjhjMzFlNThmZWM5MjRhMjU2Nzk3YWYiLCJpYXQiOjE2NTMzNjk1NjEsImV4cCI6MTY1MzM4Mzk2MX0.n0rH8QuJjFwYivX3ERdSp8dcWcAgV22LasTx4e6ag3k",
+              "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2MjhjMzFlNThmZWM5MjRhMjU2Nzk3YWYiLCJpYXQiOjE2NTM0MzA2NDksImV4cCI6MTY1MzUxNzA0OX0.pBAtgHjIb5d4Gf-mc9YXpLXHDBjSsu1qMlVx4BfSReA",
           },
         });
         setPlant(res.data.randomPlant[0]);
