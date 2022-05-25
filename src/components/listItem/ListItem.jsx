@@ -9,7 +9,10 @@ export default function ListItem({ index, item, classification }) {
     <Link to={"/watch"} state={{ plant: item, classification: classification }}>
       <div
         className="listItem"
-        style={{ left: isHovered && index * 225 - 50 + index * 2.5 }}
+        style={{
+          display: !item.activated && "none",
+          left: isHovered && index * 225 - 50 + index * 2.5,
+        }}
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
       >

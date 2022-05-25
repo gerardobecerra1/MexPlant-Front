@@ -26,8 +26,10 @@ function List({ list }) {
     }
   };
 
+  // list.plants.map((plant, i) => console.log(plant.activated));
+
   return (
-    <div className="list">
+    <div className="list" style={{ display: !list.activated && "none" }}>
       <span className="listTitle">Aprende sobre: {list.name}</span>
       <div className="wrapper">
         <ArrowBackIosOutlined
